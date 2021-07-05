@@ -1,30 +1,51 @@
 import React, { useState } from "react";
 
-function WordToGuess(){
-  const [userWord, setUserWordDisplay] = useState(
-  'What is your word ?'
-  )
-  function setUserWord(){
-    alert(userWord);
+function WordToGuess({userWord, setUserWord}){
+  const [wordDisplay, setWordDisplay] = useState()
+
+  const setDisplayWord = () => {
+    if (wordDisplay.length < 20 && wordDisplay.length > 0 ) {
+      setUserWord(wordDisplay)
+    }
+    else if (wordDisplay.length === 0) {
+      alert("Please enter a valide word")
+    }
+    else {
+      alert("Your word is too long")
+    }
+
   }
+
+
+
+  if(userWord){
+    const displayWord = userWord.split('').fill("_").join(" ");
+    return (
+      <div className="display-word-to-guess">
+        <h2>{ displayWord }</h2>
+      </div>
+    )
+  }
+
+
   return (
-  <div>
+    <div className="display-word">
+      <h2>{userWord}</h2>
+      <input
+        type="text"
+        value={wordDisplay}
+        placeholder="What is your word ?"
+        onChange={event => setWordDisplay(event.target.value)}
+        onClick = {event => setWordDisplay('')}
+      />
 
-    <h2>{userWord}</h2>
+      <button onClick= {setDisplayWord}>
+        Validate
+      </button>
 
-    <input
-      type="text"
-      value={userWord}
-      onChange={event => setUserWordDisplay(event.target.value)}
-      onClick = {event => setUserWordDisplay(event.target.value = "")}
-    />
-    <button onClick= {setUserWord}>
-      Validate
-    </button>
-  </div>
+    </div>
+
   )
 
 }
 export default WordToGuess;
-
-//je voudrais ajouter un bouton qui valide le mot afficher.

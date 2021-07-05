@@ -1,15 +1,15 @@
-import React from 'react';
-
-function ButtonValidateWord () {
-
-  function validateWordToGuess(){
-    alert('Hello')
-  }
+function ValidateWordButton(props) {
   return (
-    <button onClick={validateWordToGuess}>
-    Clic !
+    <button onClick={props.onClick}>
+      Login
     </button>
-  )
+  );
 }
 
-export default App;
+function ValidateLetterButton(props) {
+  return (
+    <button onClick={props.onClick}>
+      Logout
+    </button>
+  );
+}

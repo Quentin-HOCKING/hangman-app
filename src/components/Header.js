@@ -1,9 +1,9 @@
 import React from 'react';
+import App from '../App';
 
-function Header(){
-  const title = "Hangman";
+function Header(props){
   return (
-    <h1> {title} </h1>
+    <h1> {props.value} </h1>
   )
 }
 export default Header;
