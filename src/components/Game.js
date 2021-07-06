@@ -1,58 +1,58 @@
 import React, { useState } from "react";
 
-function Game({userWord, setUserWord, score, setScore, userLetter,setUserLetter}){
-  const [wordToGuess, setDisplayWordToGuess] = useState();
+function Game({userWord, setUserWord, score, setScore, userLetter,setUserLetter, displayUserWord, setDisplayUserWord, displayWord, setDisplayWord}){
+
   const setGame = () => {
-    if (wordToGuess.length < 20 && wordToGuess.length > 0 ) {
-      setUserWord(wordToGuess);
-      // UserGuess()
+    if (displayUserWord.length < 20 && displayUserWord.length > 0 ) {
+      setUserWord(displayUserWord);
+      setDisplayUserWord('');
+      setDisplayWord(displayUserWord.split('').fill("_").join(""))
     }
-    else if (wordToGuess.length === 0) {
+    else if (displayUserWord.length === 0) {
       alert("Please enter a word")
     }
     else {
       alert("Your word is too long")
     }
-
   }
 
+  const validateLetter = () => {
+    let displayWordTemp = displayWord.split('');
 
-
-  if(userWord){
-    const displayWord = userWord.split('').fill("_").join(" ");
-    const validateLetter = () => {
-      if (userLetter.length === 1){
-        if (userWord.includes(userLetter)){
-          for ( let i = 0; i < userWord.length; i++){
-            if (userLetter === userWord[i]){
-              displayWord[i]=userLetter
-
-            }
+    if (userLetter.length === 1){
+      if (userWord.includes(userLetter)){
+        for ( let i = 0; i < userWord.length; i++){
+          if (userLetter === userWord[i]){
+            displayWordTemp[i] = userLetter
           }
         }
-        else {
+        setDisplayWord(displayWordTemp.join(""))
+      }
+      else {
         alert('There is not the letter: ' + userLetter);
         setScore(score-=1);
         console.log(userLetter);
-        }
-      }
-      else if (userLetter.length === 0) {
-          alert("Please enter one letter")
-      }
-      else {
-          alert("Too many letters");
-      }
-      if (wordToGuess === displayWord) {
-        alert("You Win! the word was:" + userWord);
-      }
-        if (score <= 0){
-        alert("You loose ! the word was: " + userWord);
       }
     }
+    else if (userLetter.length === 0) {
+      alert("Please enter one letter")
+    }
+    else {
+        alert("Too many letters");
+    }
+    if (userWord === displayWord) {
+      alert("You Win! the word was:" + userWord);
+    }
+    if (score <= 0){
+      alert("You loose ! the word was: " + userWord);
+    }
+    setUserLetter('')
+  }
+
+  if(userWord)
     return (
       <div className="display-word-to-guess">
         <h2>{ displayWord }</h2>
-        <h2>{userLetter}</h2>
         <h2>You have {score} guess left</h2>
         <input
           type="text"
@@ -67,18 +67,15 @@ function Game({userWord, setUserWord, score, setScore, userLetter,setUserLetter}
         </button>
       </div>
     )
-  }
-
 
   return (
     <div className="display-word">
-      <h2>{wordToGuess}</h2>
       <input
         type="text"
-        value={wordToGuess}
+        value={displayUserWord}
         placeholder="What is your word ?"
-        onChange={event => setDisplayWordToGuess(event.target.value)}
-        onClick = {event => setDisplayWordToGuess('')}
+        onChange={event => setDisplayUserWord(event.target.value)}
+        onClick = {event => setDisplayUserWord('')}
       />
 
       <button onClick= {setGame}>
@@ -86,7 +83,6 @@ function Game({userWord, setUserWord, score, setScore, userLetter,setUserLetter}
       </button>
 
     </div>
-
   )
 
 }
