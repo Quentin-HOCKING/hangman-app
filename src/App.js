@@ -7,7 +7,7 @@ function App() {
   const title = "Hangman";
 
   //state pour stocker le userWord
-  const [userWord, setUserWord] = useState(null);
+  const [displayWord, setUserWord] = useState(null);
   //state pour stoker la userLetter
   //state pour le score
   const [score, setScore] = useState(7);
@@ -15,7 +15,7 @@ function App() {
   return (
     <>
       <Header value={title}/>
-      <WordToGuess userWord={userWord} setUserWord={setUserWord}/>
+      <WordToGuess userWord={displayWord} setUserWord={setUserWord}/>
     </>
   )
 }
