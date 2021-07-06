@@ -53,7 +53,7 @@ function WordToGuess({userWord, setUserWord}){
           onClick = {event => setUserLetter('')}
         />
 
-        <button onClick= {setUserLetter}>
+        <button onClick= {validateLetter}>
           Validate
         </button>
       </div>
