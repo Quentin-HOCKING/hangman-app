@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import Header from './components/Header';
-import WordToGuess from './components/WordToGuess';
+import Game from './components/Game';
 
 function App() {
 
@@ -15,7 +15,7 @@ function App() {
   return (
     <>
       <Header value={title}/>
-      <WordToGuess score={score} userWord={userWord} setUserWord={setUserWord}/>
+      <Game score={score} setScore={setScore} userWord={userWord} setUserWord={setUserWord}/>
     </>
   )
 }

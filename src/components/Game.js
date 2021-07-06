@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function WordToGuess({userWord, setUserWord}){
+function Game({userWord, setUserWord, score, setScore}){
   const [wordDisplay, setWordDisplay] = useState()
   const [userLetter, setUserLetter] = useState();
   const setDisplayWord = () => {
@@ -21,30 +21,39 @@ function WordToGuess({userWord, setUserWord}){
 
   if(userWord){
     const displayWord = userWord.split('').fill("_").join(" ");
-    const setDisplayLetter = () => {
-      if (userLetter.length == 1){
+    const validateLetter = () => {
+      if (userLetter.length === 1){
         if (userWord.includes(userLetter)){
           for ( let i = 0; i < displayWord.length; i++){
             if (userLetter === displayWord[i]){
-              displayWord[i] = userLetter;
+              displayWord[i].join(userLetter);
+              console.log(userLetter);
             }
           }
         }
         else {
-        alert('There is not the letter:');
+        alert('There is not the letter: ' + userLetter);
+        setScore(score-=1);
         }
       }
-      else if (userLetter.length == 0) {
+      else if (userLetter.length === 0) {
           alert("Please enter one letter")
       }
       else {
           alert("Too many letters");
+      }
+      // if (userWord = displayWord) {
+      //   alert("You Win! the word was:" + userWord);
+      // }
+        if (score <= 0){
+        alert("You loose ! the word was:" + userWord);
       }
     }
     return (
       <div className="display-word-to-guess">
         <h2>{ displayWord }</h2>
         <h2>{userLetter}</h2>
+        <h2>You have {score} guess left</h2>
         <input
           type="text"
           value={userLetter}
@@ -81,4 +90,4 @@ function WordToGuess({userWord, setUserWord}){
   )
 
 }
-export default WordToGuess;
+export default Game;
