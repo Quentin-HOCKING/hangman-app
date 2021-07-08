@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import Header from './components/Header';
 import Game from './components/Game';
+import SetGame from './components/SetGame';
 
 function App() {
 
@@ -19,21 +20,31 @@ function App() {
   //
   return (
     <>
-      <Header value={title}/>
-      <Game
-        score={score}
-        setScore={setScore}
-        userWord={userWord}
-        setUserWord={setUserWord}
-        userLetter={userLetter}
-        setUserLetter={setUserLetter}
-        displayUserWord={displayUserWord}
-        setDisplayUserWord={setDisplayUserWord}
-        displayWord={displayWord}
-        setDisplayWord={setDisplayWord}
-      />
+      <Header value={title} />
+      <SetGame
+      setUserWord={setUserWord}
+      displayUserWord={displayUserWord}
+      setDisplayUserWord={setDisplayUserWord}
+      setDisplayWord={setDisplayWord}
+       />
+
     </>
   )
+  // if (userWord!== null){
+  //   return (
+  //     <>
+  //     <Header value={title}/>
+  //     <Game
+  //       score={score}
+  //       setScore={setScore}
+  //       userWord={userWord}
+  //       userLetter={userLetter}
+  //       setUserLetter={setUserLetter}
+  //       displayWord={displayWord}
+  //       setDisplayWord={setDisplayWord}
+  //       />
+  //   )
+  // }
 }
 
 export default App;

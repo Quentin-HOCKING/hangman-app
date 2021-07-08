@@ -1,20 +1,6 @@
 import React, { useState } from "react";
 
-function Game({userWord, setUserWord, score, setScore, userLetter,setUserLetter, displayUserWord, setDisplayUserWord, displayWord, setDisplayWord}){
-
-  const setGame = () => {
-    if (displayUserWord.length < 20 && displayUserWord.length > 0 ) {
-      setUserWord(displayUserWord);
-      setDisplayUserWord('');
-      setDisplayWord(displayUserWord.split('').fill("_").join(""))
-    }
-    else if (displayUserWord.length === 0) {
-      alert("Please enter a word")
-    }
-    else {
-      alert("Your word is too long")
-    }
-  }
+function Game({userWord, score, setScore, userLetter,setUserLetter, displayWord, setDisplayWord}){
 
   const validateLetter = () => {
     let displayWordTemp = displayWord.split('');
@@ -46,44 +32,24 @@ function Game({userWord, setUserWord, score, setScore, userLetter,setUserLetter,
     if (score <= 0){
       alert("You loose ! the word was: " + userWord);
     }
-    setUserLetter('')
+    setUserLetter('');
   }
-
-  if(userWord)
-    return (
-      <div className="display-word-to-guess">
-        <h2>{ displayWord }</h2>
-        <h2>You have {score} guess left</h2>
-        <input
-          type="text"
-          value={userLetter}
-          placeholder="What is your Letter ?"
-          onChange={event => setUserLetter(event.target.value)}
-          onClick = {event => setUserLetter('')}
-        />
-
-        <button onClick= {validateLetter}>
-          Validate
-        </button>
-      </div>
-    )
-
   return (
-    <div className="display-word">
+    <div className="display-word-to-guess">
+      <h2>{ displayWord }</h2>
+      <h2>You have {score} guess left</h2>
       <input
         type="text"
-        value={displayUserWord}
-        placeholder="What is your word ?"
-        onChange={event => setDisplayUserWord(event.target.value)}
-        onClick = {event => setDisplayUserWord('')}
+        value={userLetter}
+        placeholder="What is your Letter ?"
+        onChange={event => setUserLetter(event.target.value)}
+        onClick = {event => setUserLetter('')}
       />
 
-      <button onClick= {setGame}>
+      <button onClick= {validateLetter}>
         Validate
       </button>
-
     </div>
-  )
-
+  );
 }
 export default Game;
