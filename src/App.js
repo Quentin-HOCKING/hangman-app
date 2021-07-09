@@ -16,7 +16,7 @@ function App() {
 
   const [displayWord, setDisplayWord] = useState(null);
 
-  const [score, setScore] = useState(7);
+  const [score, setScore] = useState(1);
   //
 
   if (userWord !== null){

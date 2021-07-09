@@ -22,7 +22,7 @@ return (
         value={displayUserWord}
         placeholder="What is your word ?"
         onChange={event => setDisplayUserWord(event.target.value.toUpperCase())}
-        onClick = {event => setDisplayUserWord('')}
+        onClick = {event => setDisplayUserWord(null)}
       />
 
     <button onClick= {validateUserWord}>

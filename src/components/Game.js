@@ -5,12 +5,18 @@ function Game({userWord, score, setScore, userLetter,setUserLetter, displayWord,
   const validateLetter = () => {
     let displayWordTemp = displayWord.split('');
 
-    if (userLetter.length === 1){
+    if (userLetter === null) {
+      alert("Please enter one letter")
+    }
+    else if (userLetter.length === 1){
       if (userWord.includes(userLetter)){
         for ( let i = 0; i < userWord.length; i++){
           if (userLetter === userWord[i]){
             displayWordTemp[i] = userLetter
           }
+        }
+        if (userWord === displayWordTemp.join("")) {
+          alert("You Win! the word was: " + userWord);
         }
         setDisplayWord(displayWordTemp.join(""))
       }
@@ -20,14 +26,8 @@ function Game({userWord, score, setScore, userLetter,setUserLetter, displayWord,
         console.log(userLetter);
       }
     }
-    else if (userLetter.length === 0) {
-      alert("Please enter one letter")
-    }
-    else {
+    else if (userLetter.length < 1) {
         alert("Too many letters");
-    }
-    if (userWord === displayWord) {
-      alert("You Win! the word was: " + userWord);
     }
     if (score <= 0){
       alert("You loose ! the word was: " + userWord);
@@ -43,7 +43,7 @@ function Game({userWord, score, setScore, userLetter,setUserLetter, displayWord,
           value={userLetter}
           placeholder="What is your Letter ?"
           onChange={event => setUserLetter(event.target.value.toUpperCase())}
-          onClick = {event => setUserLetter('')}
+          onClick = {event => setUserLetter(null)}
         />
 
         <button onClick= {validateLetter}>
