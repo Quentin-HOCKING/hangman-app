@@ -2,11 +2,11 @@ import React,{useState} from 'react';
 import Header from './components/Header';
 import Game from './components/Game';
 import SetGame from './components/SetGame';
+import ResetButton from './components/ResetButton';
 
 function App() {
 
   const title = "Hangman";
-
   //state pour stocker le userWord
   const [userWord, setUserWord] = useState(null);
   //state pour stoker la userLetter
@@ -22,7 +22,7 @@ function App() {
   if (userWord !== null){
     return (
       <div className="step-two">
-        <Header value={title}/>
+        <Header />
         <Game
           score={score}
           setScore={setScore}
@@ -31,6 +31,18 @@ function App() {
           setUserLetter={setUserLetter}
           displayWord={displayWord}
           setDisplayWord={setDisplayWord}
+          />
+        <ResetButton
+          score={score}
+          setScore={setScore}
+          userWord={userWord}
+          setUserWord={setUserWord}
+          userLetter={userLetter}
+          setUserLetter={setUserLetter}
+          displayWord={displayWord}
+          setDisplayWord={setDisplayWord}
+          displayUserWord={displayUserWord}
+          setDisplayUserWord={setDisplayUserWord}
           />
     </div>
     )

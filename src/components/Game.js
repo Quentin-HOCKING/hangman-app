@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+
 function Game({userWord, score, setScore, userLetter,setUserLetter, displayWord, setDisplayWord}){
 
   const validateLetter = () => {
@@ -34,7 +35,7 @@ function Game({userWord, score, setScore, userLetter,setUserLetter, displayWord,
     }
     setUserLetter(null);
   }
-    return (
+  return (
       <div className="display-word-to-guess">
         <h2>{ displayWord }</h2>
         <h2>You have {score} guess left</h2>
@@ -50,6 +51,6 @@ function Game({userWord, score, setScore, userLetter,setUserLetter, displayWord,
           Validate
         </button>
       </div>
-    );
+    )
 }
 export default Game;
