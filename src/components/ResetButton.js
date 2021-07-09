@@ -4,7 +4,7 @@ import App from '../components/Game';
 function ResetButton () {
 
     return (
-      <button onClick= {app}>
+      <button onClick= {App}>
           Play Again
         </button>
     )
