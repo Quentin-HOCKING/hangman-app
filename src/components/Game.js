@@ -26,13 +26,13 @@ function Game({userWord, score, setScore, userLetter,setUserLetter, displayWord,
         console.log(userLetter);
       }
     }
-    else if (userLetter.length < 1) {
+    else {
         alert("Too many letters");
     }
     if (score <= 0){
       alert("You loose ! the word was: " + userWord);
     }
-    setUserLetter('');
+    setUserLetter(null);
   }
     return (
       <div className="display-word-to-guess">
