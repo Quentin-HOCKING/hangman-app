@@ -27,7 +27,7 @@ function Game({userWord, score, setScore, userLetter,setUserLetter, displayWord,
         alert("Too many letters");
     }
     if (userWord === displayWord) {
-      alert("You Win! the word was:" + userWord);
+      alert("You Win! the word was: " + userWord);
     }
     if (score <= 0){
       alert("You loose ! the word was: " + userWord);
@@ -42,7 +42,7 @@ function Game({userWord, score, setScore, userLetter,setUserLetter, displayWord,
           type="text"
           value={userLetter}
           placeholder="What is your Letter ?"
-          onChange={event => setUserLetter(event.target.value)}
+          onChange={event => setUserLetter(event.target.value.toUpperCase())}
           onClick = {event => setUserLetter('')}
         />
 
