@@ -28,7 +28,6 @@ return (
     <button onClick= {validateUserWord}>
         Validate
       </button>
-
     </div>
   );
 }
