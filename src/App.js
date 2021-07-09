@@ -18,6 +18,24 @@ function App() {
 
   const [score, setScore] = useState(7);
   //
+
+  if (userWord != null){
+    return (
+      <div className="step-two">
+        <Header value={title}/>
+        <Game
+          score={score}
+          setScore={setScore}
+          userWord={userWord}
+          userLetter={userLetter}
+          setUserLetter={setUserLetter}
+          displayWord={displayWord}
+          setDisplayWord={setDisplayWord}
+          />
+    </div>
+    )
+  }
+  
   return (
     <div className="step-one">
       <Header value={title} />
@@ -27,25 +45,8 @@ function App() {
       setDisplayUserWord={setDisplayUserWord}
       setDisplayWord={setDisplayWord}
        />
-
    </div>
   )
-  if (userWord != null){
-    return (
-      <div className="step-two">
-      <Header value={title}/>
-      <Game
-        score={score}
-        setScore={setScore}
-        userWord={userWord}
-        userLetter={userLetter}
-        setUserLetter={setUserLetter}
-        displayWord={displayWord}
-        setDisplayWord={setDisplayWord}
-        />
-    </div>
-    )
-  }
 }
 
 export default App;
