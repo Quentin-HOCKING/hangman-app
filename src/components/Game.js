@@ -34,22 +34,22 @@ function Game({userWord, score, setScore, userLetter,setUserLetter, displayWord,
     }
     setUserLetter('');
   }
-  return (
-    <div className="display-word-to-guess">
-      <h2>{ displayWord }</h2>
-      <h2>You have {score} guess left</h2>
-      <input
-        type="text"
-        value={userLetter}
-        placeholder="What is your Letter ?"
-        onChange={event => setUserLetter(event.target.value)}
-        onClick = {event => setUserLetter('')}
-      />
+    return (
+      <div className="display-word-to-guess">
+        <h2>{ displayWord }</h2>
+        <h2>You have {score} guess left</h2>
+        <input
+          type="text"
+          value={userLetter}
+          placeholder="What is your Letter ?"
+          onChange={event => setUserLetter(event.target.value)}
+          onClick = {event => setUserLetter('')}
+        />
 
-      <button onClick= {validateLetter}>
-        Validate
-      </button>
-    </div>
-  );
+        <button onClick= {validateLetter}>
+          Validate
+        </button>
+      </div>
+    );
 }
 export default Game;

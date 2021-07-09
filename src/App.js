@@ -19,7 +19,7 @@ function App() {
   const [score, setScore] = useState(7);
   //
 
-  if (userWord != null){
+  if (userWord !== null){
     return (
       <div className="step-two">
         <Header value={title}/>
@@ -35,7 +35,7 @@ function App() {
     </div>
     )
   }
-  
+
   return (
     <div className="step-one">
       <Header value={title} />
