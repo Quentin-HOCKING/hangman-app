@@ -16,7 +16,7 @@ function App() {
 
   const [displayWord, setDisplayWord] = useState(null);
 
-  const [score, setScore] = useState(1);
+  const [score, setScore] = useState(7);
   //
 
   if (userWord !== null){
@@ -33,16 +33,8 @@ function App() {
           setDisplayWord={setDisplayWord}
           />
         <ResetButton
-          score={score}
           setScore={setScore}
-          userWord={userWord}
           setUserWord={setUserWord}
-          userLetter={userLetter}
-          setUserLetter={setUserLetter}
-          displayWord={displayWord}
-          setDisplayWord={setDisplayWord}
-          displayUserWord={displayUserWord}
-          setDisplayUserWord={setDisplayUserWord}
           />
     </div>
     )
