@@ -44,7 +44,7 @@ function Game({userWord, score, setScore, userLetter,setUserLetter, displayWord,
           value={userLetter}
           placeholder="What is your Letter ?"
           onChange={event => setUserLetter(event.target.value.toUpperCase())}
-          onClick = {event => setUserLetter(null)}
+          onClick = {event => setUserLetter('')}
         />
 
         <button onClick= {validateLetter}>

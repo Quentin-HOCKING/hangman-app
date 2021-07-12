@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
-import App from '../components/Game';
 
-function ResetButton () {
-
+function ResetButton ({setUserWord, setScore}) {
+  const newGame = () => {
+    setUserWord(null);
+    setScore(7);
+  }
     return (
-      <button onClick= {App}>
+      <button onClick= { newGame }>
           Play Again
         </button>
     )
-  }
+}
 
 
 export default ResetButton;
