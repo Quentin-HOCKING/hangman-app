@@ -14,10 +14,37 @@ function App() {
   //state pour le score
   const [displayUserWord, setDisplayUserWord] = useState(null);
 
-  const [displayWord, setDisplayWord] = useState(null);
+  const [displayWord, setDisplayWord] = useState('');
 
   const [score, setScore] = useState(7);
   //
+  if (userWord === displayWord) {
+    return (
+      <div className="win">
+        <h2>"You Win ! the word was: "{userWord}</h2>
+          <ResetButton
+            setScore={setScore}
+            setUserWord={setUserWord}
+            setDisplayWord={setDisplayWord}
+            />
+      </div>
+
+    )
+  }
+
+  if (score === 0 ){
+    return (
+    <div className="loose">
+      <h2>"You Loose ! the word was: "{userWord}</h2>
+      <ResetButton
+        setScore={setScore}
+        setUserWord={setUserWord}
+        setDisplayWord={setDisplayWord}
+      />
+    </div>
+
+    )
+  }
 
   if (userWord !== null){
     return (

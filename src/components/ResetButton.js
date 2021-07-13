@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function ResetButton ({setUserWord, setScore}) {
+function ResetButton ({setUserWord, setScore, setDisplayWord}) {
   const newGame = () => {
     setUserWord(null);
     setScore(7);

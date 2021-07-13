@@ -17,7 +17,7 @@ function Game({userWord, score, setScore, userLetter,setUserLetter, displayWord,
           }
         }
         if (userWord === displayWordTemp.join("")) {
-          alert("You Win! the word was: " + userWord);
+          setDisplayWord(displayWordTemp);
         }
         setDisplayWord(displayWordTemp.join(""))
       }
@@ -29,10 +29,7 @@ function Game({userWord, score, setScore, userLetter,setUserLetter, displayWord,
     }
     else {
         alert("Too many letters");
-    }
-    if (score <= 0){
-      alert("You loose ! the word was: " + userWord);
-    }
+    }  
     setUserLetter(null);
   }
   return (
