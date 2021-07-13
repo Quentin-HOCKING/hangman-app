@@ -32,8 +32,13 @@ function App() {
 
         <WinCount
           win={win}
+<<<<<<< HEAD
           userWord={userWord}
           setWin={setWin}
+=======
+          setWin={setWin}
+          userWord={userWord}
+>>>>>>> 2de4e54f659e2c86cc0923fb0188118fa0750434
           />
 
         <ResetButton
