@@ -24,12 +24,12 @@ function Game({userWord, score, setScore, userLetter,setUserLetter, displayWord,
       else {
         alert('There is not the letter: ' + userLetter);
         setScore(score-=1);
-        console.log(userLetter);
+        
       }
     }
     else {
         alert("Too many letters");
-    }  
+    }
     setUserLetter(null);
   }
   return (

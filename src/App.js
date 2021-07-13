@@ -3,6 +3,8 @@ import Header from './components/Header';
 import Game from './components/Game';
 import SetGame from './components/SetGame';
 import ResetButton from './components/ResetButton';
+import WinCount from './components/WinCount';
+import LooseCount from './components/LooseCount';
 
 function App() {
 
@@ -16,26 +18,45 @@ function App() {
 
   const [displayWord, setDisplayWord] = useState('');
 
-  const [score, setScore] = useState(7);
+  const [score, setScore] = useState(1);
+
+  const [win, setWin] = useState(0);
+
+  const [loose, setLoose] = useState(0);
   //
   if (userWord === displayWord) {
+
     return (
+
       <div className="win">
-        <h2>"You Win ! the word was: "{userWord}</h2>
-          <ResetButton
-            setScore={setScore}
-            setUserWord={setUserWord}
-            setDisplayWord={setDisplayWord}
-            />
+
+        <WinCount
+          win={win}
+          userWord={userWord}
+          setWin={setWin}
+          />
+
+        <ResetButton
+          setScore={setScore}
+          setUserWord={setUserWord}
+          setDisplayWord={setDisplayWord}
+          />
+
       </div>
 
     )
   }
 
   if (score === 0 ){
+    
     return (
+
     <div className="loose">
-      <h2>"You Loose ! the word was: "{userWord}</h2>
+      <LooseCount
+        loose={loose}
+        setLoose={setLoose}
+        userWord={userWord}
+      />
       <ResetButton
         setScore={setScore}
         setUserWord={setUserWord}
@@ -76,6 +97,10 @@ function App() {
       setDisplayUserWord={setDisplayUserWord}
       setDisplayWord={setDisplayWord}
        />
+       <div className="win-loose">
+         <h2>You won { win } Games</h2>
+         <h2>You loosed { loose } Games</h2>
+       </div>
    </div>
   )
 }
