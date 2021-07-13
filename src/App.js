@@ -8,7 +8,7 @@ import LooseCount from './components/LooseCount';
 
 function App() {
 
-  const title = "Hangman";
+
   //state pour stocker le userWord
   const [userWord, setUserWord] = useState(null);
   //state pour stoker la userLetter
@@ -20,7 +20,7 @@ function App() {
 
   const [score, setScore] = useState(1);
 
-  const [win, setWin] = useState(0);
+const [win, setWin] = useState(0);
 
   const [loose, setLoose] = useState(0);
   //
@@ -90,7 +90,7 @@ function App() {
 
   return (
     <div className="step-one">
-      <Header value={title} />
+      <Header  />
       <SetGame
       setUserWord={setUserWord}
       displayUserWord={displayUserWord}
