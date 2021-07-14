@@ -19,7 +19,13 @@ function Game({userWord, score, setScore, userLetter,setUserLetter, displayWord,
         }
         if (userWord === displayWordTemp.join("")) {
           setDisplayWord(displayWordTemp);
+<<<<<<< HEAD
           setWin(win + 1);
+=======
+
+          setWin(win + 1);
+          console.log(win);
+>>>>>>> 82eecf9f595df2fd0f378b55f26fbee6e2d559d2
         }
         setDisplayWord(displayWordTemp.join(""))
       }
