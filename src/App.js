@@ -25,21 +25,22 @@ function App() {
   //
   if (userWord)
     return (
-      <div className="win">
+      <div className="hangman">
         {userWord === displayWord && <WinCount
           win={win}
           userWord={userWord}
           />}
         {score === 0 && <LooseCount
           loose={loose}
-          setLoose={setLoose}
           userWord={userWord}
         />}
-        {userWord !== displayWord && <Game
+        {userWord !== displayWord && Boolean(score) && <Game
           score={score}
           setScore={setScore}
           setWin={setWin}
           win={win}
+          setLoose={setLoose}
+          loose={loose}
           userWord={userWord}
           userLetter={userLetter}
           setUserLetter={setUserLetter}
