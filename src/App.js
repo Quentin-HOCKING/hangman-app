@@ -26,6 +26,7 @@ function App() {
   if (userWord)
     return (
       <div className="hangman">
+        <Header  />
         {userWord === displayWord && <WinCount
           win={win}
           userWord={userWord}
