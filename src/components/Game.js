@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 
-function Game({userWord, score, setScore, userLetter,setUserLetter, displayWord, setDisplayWord}){
+function Game({userWord, score, setScore, userLetter,setUserLetter, displayWord, setDisplayWord, setWin, win}){
 
   const validateLetter = () => {
     let displayWordTemp = displayWord.split('');
@@ -18,13 +18,13 @@ function Game({userWord, score, setScore, userLetter,setUserLetter, displayWord,
         }
         if (userWord === displayWordTemp.join("")) {
           setDisplayWord(displayWordTemp);
+          setWin(win++)
         }
         setDisplayWord(displayWordTemp.join(""))
       }
       else {
         alert('There is not the letter: ' + userLetter);
         setScore(score-=1);
-
       }
     }
     else {
@@ -32,7 +32,7 @@ function Game({userWord, score, setScore, userLetter,setUserLetter, displayWord,
     }
     setUserLetter(null);
   }
-  
+
   return (
       <div className="display-word-to-guess">
         <h2>{ displayWord }</h2>

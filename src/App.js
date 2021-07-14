@@ -39,6 +39,7 @@ function App() {
           score={score}
           setScore={setScore}
           setWin={setWin}
+          win={win}
           userWord={userWord}
           userLetter={userLetter}
           setUserLetter={setUserLetter}

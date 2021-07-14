@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 
-function WinCount ({setWin, win, userWord}){
-
-  setWin(win++);
+function WinCount ({win, userWord}){
 
   return (
 
