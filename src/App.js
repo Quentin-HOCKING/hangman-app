@@ -8,7 +8,6 @@ import LooseCount from './components/LooseCount';
 
 function App() {
 
-
   //state pour stocker le userWord
   const [userWord, setUserWord] = useState(null);
   //state pour stoker la userLetter
@@ -20,73 +19,39 @@ function App() {
 
   const [score, setScore] = useState(1);
 
-const [win, setWin] = useState(0);
+  const [win, setWin] = useState(0);
 
   const [loose, setLoose] = useState(0);
   //
-  if (userWord === displayWord) {
-
+  if (userWord)
     return (
-
       <div className="win">
-
-        <WinCount
+        {userWord === displayWord && <WinCount
           win={win}
           userWord={userWord}
-          setWin={setWin}
-          />
-
-        <ResetButton
-          setScore={setScore}
-          setUserWord={setUserWord}
-          setDisplayWord={setDisplayWord}
-          />
-
-      </div>
-
-    )
-  }
-
-  if (score === 0 ){
-
-    return (
-
-    <div className="loose">
-      <LooseCount
-        loose={loose}
-        setLoose={setLoose}
-        userWord={userWord}
-      />
-      <ResetButton
-        setScore={setScore}
-        setUserWord={setUserWord}
-        setDisplayWord={setDisplayWord}
-      />
-    </div>
-
-    )
-  }
-
-  if (userWord !== null){
-    return (
-      <div className="step-two">
-        <Header />
-        <Game
+          />}
+        {score === 0 && <LooseCount
+          loose={loose}
+          setLoose={setLoose}
+          userWord={userWord}
+        />}
+        {userWord !== displayWord && <Game
           score={score}
           setScore={setScore}
+          setWin={setWin}
           userWord={userWord}
           userLetter={userLetter}
           setUserLetter={setUserLetter}
           displayWord={displayWord}
           setDisplayWord={setDisplayWord}
-          />
-        <ResetButton
-          setScore={setScore}
-          setUserWord={setUserWord}
-          />
-    </div>
-    )
-  }
+          />}
+          <ResetButton
+            setScore={setScore}
+            setUserWord={setUserWord}
+            setDisplayWord={setDisplayWord}
+            />
+        </div>
+      )
 
   return (
     <div className="step-one">
@@ -101,7 +66,7 @@ const [win, setWin] = useState(0);
          <h2>You won { win } Games</h2>
          <h2>You loosed { loose } Games</h2>
        </div>
-   </div>
+    </div>
   )
 }
 

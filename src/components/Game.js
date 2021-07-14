@@ -24,7 +24,7 @@ function Game({userWord, score, setScore, userLetter,setUserLetter, displayWord,
       else {
         alert('There is not the letter: ' + userLetter);
         setScore(score-=1);
-        
+
       }
     }
     else {
@@ -32,6 +32,7 @@ function Game({userWord, score, setScore, userLetter,setUserLetter, displayWord,
     }
     setUserLetter(null);
   }
+  
   return (
       <div className="display-word-to-guess">
         <h2>{ displayWord }</h2>

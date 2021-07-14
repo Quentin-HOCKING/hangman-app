@@ -1,12 +1,12 @@
-import React,{ useState } from 'react';
+import React, { useState } from 'react';
 
 function SetGame({setUserWord, displayUserWord, setDisplayUserWord,setDisplayWord}){
-  const validateUserWord = () => {
 
+  const validateUserWord = () => {
     if (displayUserWord === null) {
       alert("Please enter a word")
     }
-    else if (displayUserWord.length < 20 && displayUserWord.length > 0 ) {
+    else if (displayUserWord.length < 20 && displayUserWord.length ) {
       setUserWord(displayUserWord);
       setDisplayUserWord('');
       setDisplayWord(displayUserWord.split('').fill("_").join(""))
@@ -15,7 +15,8 @@ function SetGame({setUserWord, displayUserWord, setDisplayUserWord,setDisplayWor
       alert("Your word is too long")
     }
   }
-return (
+
+  return (
     <div className="display-word">
       <input
         type="text"
@@ -24,8 +25,7 @@ return (
         onChange={event => setDisplayUserWord(event.target.value.toUpperCase())}
         onClick = {event => setDisplayUserWord('')}
       />
-
-    <button onClick= {validateUserWord}>
+      <button onClick= {validateUserWord}>
         Validate
       </button>
     </div>
